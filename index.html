@@ -1,65 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tiketkai – AI Chat Test</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Tiketkai – AI Chat Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       font-family: Arial, sans-serif;
+      height: 2000px;
+      margin: 0;
+      padding: 40px;
     }
 
-    /* Floating WA handover */
-    #wa-handover {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 9998;
-      display: none;
+    h1 {
+      margin-bottom: 10px;
     }
 
-    #wa-handover a {
-      background: #25D366;
-      color: #fff;
-      padding: 12px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,.2);
-    }
-
-    /* Helper text */
-    #helper-text {
-      position: fixed;
-      bottom: 90px;
-      left: 20px;
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 8px;
-      width: 260px;
-      font-size: 13px;
-      box-shadow: 0 4px 10px rgba(0,0,0,.1);
-      z-index: 9998;
+    .note {
+      background: #f5f5f5;
+      padding: 15px;
+      border-left: 4px solid #0d6efd;
+      margin-bottom: 30px;
     }
   </style>
 </head>
 
 <body>
 
-<!-- Helper UX -->
-<div id="helper-text">
-  💡 Gunakan AI untuk pertanyaan umum.<br>
-  Jika perlu CS manusia, klik tombol WhatsApp.
+<h1>Tiketkai – AI Live Chat (GitHub Test)</h1>
+
+<div class="note">
+  Ini adalah website Tiketkai.<br>
+  Chat AI di kanan bawah menggunakan <b>cekat.ai</b>.
 </div>
 
-<!-- WA Handover -->
-<div id="wa-handover">
-  <a id="wa-link" target="_blank">
-    Chat CS via WhatsApp
-  </a>
-</div>
+<p>
+  Silakan scroll, klik, dan bertanya ke AI
+</p>
 
 <!-- ================= CEKAT AI WIDGET ================= -->
 <script type="text/javascript">
@@ -81,30 +59,6 @@
 }(window,document,"script");
 </script>
 <!-- =================================================== -->
-
-<script>
-  // Qontak WhatsApp
-  const WA_PHONE = "6285892578999";
-
-  // prefilled message (AMAN, general only)
-  const waText = encodeURIComponent(
-    "Hai Kak, saya butuh bantuan terkait layanan Tiketkai.\n\n" +
-    "Saya sudah mencoba bertanya ke AI Chat."
-  );
-
-  document.getElementById("wa-link").href =
-    `https://api.whatsapp.com/send/?phone=${WA_PHONE}&text=${waText}`;
-
-  /**
-   * STRATEGI:
-   * - Jangan langsung tampilkan WA
-   * - Munculkan setelah user beberapa detik / interaksi
-   * - Karena iframe cekat.ai tidak expose event
-   */
-  setTimeout(() => {
-    document.getElementById("wa-handover").style.display = "block";
-  }, 15000); // 15 detik setelah page load
-</script>
 
 </body>
 </html>
